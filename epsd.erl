@@ -19,9 +19,9 @@ read_header({error, Reason}) ->
     io:format("Error").
 
 %% Is a PSD
-read_signature("8BPS") ->
-    io:format("Cool a PSD!");
+read_signature(<<"8BPS">>) ->
+    {ok};
 
 %% Not a PSD
 read_signature(_) ->
-    io:format("Somthing went wrong.").
+    {error, "Not a PSD"}.
