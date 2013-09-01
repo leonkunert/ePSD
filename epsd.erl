@@ -9,7 +9,6 @@ read_header({ok,Binary}) ->
     read_version(binary:part(Binary, 4, 2)),
     read_reserved(binary:part(Binary, 6, 6)),
     read_channels(binary:part(Binary, 12, 2));
-    %% Channels
     %% Height
     %% Width
     %% Depth
@@ -50,6 +49,7 @@ read_reserved(_) ->
 
 %%---- Read Channels ----%%
 
-read_channels(Channels) ->
+read_channels(Binary) ->
+    [_ | Channels] = binary_to_list(Binary),
     io:format("~n... Nummber of Channels: ~p", Channels),
     {ok}.
