@@ -1,4 +1,4 @@
-PSD
+ePSD
 ===
 
 A PSD Parser For Erlang
