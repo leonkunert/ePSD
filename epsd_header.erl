@@ -5,8 +5,8 @@ read_header({ok,Binary}) ->
     read_signature(binary:part(Binary, 0, 4)),
     read_version(binary:part(Binary, 4, 2)),
     read_reserved(binary:part(Binary, 6, 6)),
-    read_channels(binary:part(Binary, 12, 2));
-    %% Height
+    read_channels(binary:part(Binary, 12, 2)),
+    read_height(binary:part(Binary, 14, 4));
     %% Width
     %% Depth
     %% Color Mode
@@ -50,3 +50,11 @@ read_channels(Binary) ->
     [_ | Channels] = binary_to_list(Binary),
     io:format("~n... Nummber of Channels: ~p", Channels),
     {ok}.
+
+%%---- Read Height ----%%
+
+read_height(Binary) ->
+    Binary.
+    % [_ | Channels] = binary_to_list(Binary),
+    % io:format("~n... Nummber of Channels: ~p", Channels),
+    % {ok}.
