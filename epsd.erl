@@ -7,4 +7,6 @@ epsd(Path) ->
     %% Reading Header
     epsd_header:read_header(Binary),
     %% Reading Color Data
-    epsd_color_data:read_color_data(Binary).
+    epsd_color_data:read_color_data(Binary),
+    %% Reading Image Resources
+    epsd_image_resources:read_resources(Binary).

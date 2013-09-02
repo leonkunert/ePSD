@@ -2,8 +2,6 @@
 -export([read_color_data/1]).
 
 read_color_data({ok, Binary}) ->
-    %% Calculating Length
-    %% Data
     io:format("~nStarting with Color Data ..."),
     read_lenght(binary:part(Binary, 26, 4));
 
