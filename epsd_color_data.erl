@@ -13,8 +13,10 @@ read_color_data({error, Reason}) ->
 read_lenght(Binary) ->
     <<Data:32/integer-unsigned-big>> = Binary,
     if  Data =:= 0 ->
+            {ok, color_data, 0},
             io:format("~n... No Color Data found.");
         Data > 0 ->
             %% Still needs to deal with Color Data
+            {ok, color_data, Data},
             io:format("~n... Color Data length: "++ integer_to_list(Data))
     end.

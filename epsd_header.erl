@@ -69,7 +69,7 @@ read_width(Binary) ->
 
 read_depth(Binary) -> 
     <<Data:16/integer-unsigned-big>> = Binary,
-    io:format("~n... Depth is: "++ integer_to_list(Data)),
+    io:format("~n... Depth is: "++ integer_to_list(Data) ++"Bit"),
     {ok, depth, Data}.
 
 %%---- Read Color Mode ----%%
