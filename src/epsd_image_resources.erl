@@ -41,7 +41,8 @@ read_resource_id(Binary) ->
                   1080,1081,1082,1083,1084,1085,1086,1087,1088,2999,
                   3000,7000,7001,8000,10000],
     io:format("~n... ResourceId: "++integer_to_list(Data)),
-    lists:member(Data, ResourceId).
+    when Data < 1000, Data > 10000 ->
+      {ok, resource_id, Data}.
 
 
 read_name(<<0,0,0,0>>) ->
